@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SCT.Views.Terms"
+             Title="Terms">
+    <ScrollView>
+        <VerticalStackLayout Margin="25,25,25,0">
+            <CollectionView ItemsSource="{Binding ListTerms}" 
+                        x:Name="TermsCollection" 
+                        SelectionMode="Single"
+                        SelectionChanged="Term_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="AliceBlue"
+                            Padding="15"
+                            Margin="5">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10"/>
+                            </Border.StrokeShape>
+                            <StackLayout>
+                                <Label Text="{Binding Title}"
+                                   FontSize="22"/>
+                                <HorizontalStackLayout>
+                                    <Label Text="{Binding StartDate, StringFormat='{0:MM/dd/yyyy}'}"
+                                       FontSize="16"/>
+                                    <Label Text=" - " 
+                                       HorizontalOptions="Center"/>
+                                    <Label Text="{Binding EndDate, StringFormat='{0:MM/dd/yyyy}'}"
+                                       FontSize="16" />
+                                </HorizontalStackLayout>
+                            </StackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Add Term"
+                Clicked="BtnAddTerm_Clicked"
+                Margin="20,20,20,10"
+                BackgroundColor="SteelBlue" />
+            <Button Text="Show All Terms and Courses"
+                Clicked="BtnReport_Clicked"
+                Margin="20,5,10,0"
+                BackgroundColor="SteelBlue" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+    

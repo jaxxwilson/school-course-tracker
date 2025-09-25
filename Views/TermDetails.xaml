@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SCT.Views.TermDetails"
+             Title="Term Details">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Home" Text="Home" Clicked="BtnHome_Clicked" ></ToolbarItem>
+        <ToolbarItem x:Name="Edit" Text="Edit" Clicked="BtnEditTerm_Clicked" ></ToolbarItem>
+        <ToolbarItem x:Name="Delete" Text="Delete" Clicked="BtnDeleteTerm_Clicked" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <VerticalStackLayout Margin="25,25,25,0">
+            <StackLayout Margin="25,0,0,20">
+                <Label Text="{Binding Term.Title}"
+                   FontSize="22" />
+                <HorizontalStackLayout>
+                    <Label Text="{Binding Term.StartDate, StringFormat='{0:MM/dd/yyyy}'}"
+                       FontSize="16"/>
+                    <Label Text=" - " HorizontalOptions="Center"/>
+                    <Label Text="{Binding Term.EndDate, StringFormat='{0:MM/dd/yyyy}'}"
+                       FontSize="16" />
+                </HorizontalStackLayout>
+            </StackLayout>
+
+            <CollectionView ItemsSource="{Binding TermCourses}" 
+                        x:Name="CourseCollection"
+                        SelectionMode="Single"
+                        SelectionChanged="Course_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="AliceBlue"
+                            Padding="15"
+                            Margin="5">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10"/>
+                            </Border.StrokeShape>
+                            <StackLayout>
+                                <Label Text="{Binding Title}"
+                                   FontSize="20"/>
+                                <HorizontalStackLayout>
+                                    <Label Text="{Binding StartDate, StringFormat='{0:MM/dd/yyyy}'}"
+                                       FontSize="14"/>
+                                    <Label Text=" - " 
+                                       HorizontalOptions="Center"/>
+                                    <Label Text="{Binding EndDate, StringFormat='{0:MM/dd/yyyy}'}"
+                                       FontSize="14" />
+                                </HorizontalStackLayout>
+                            </StackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Add Course" 
+                Clicked="BtnAddCourse_Clicked"
+                Margin="20"
+                BackgroundColor="SteelBlue" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

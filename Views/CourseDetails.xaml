@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SCT.Views.CourseDetails"
+             Title="CourseDetails">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Home" 
+                     Text="Home" 
+                     Clicked="BtnHome_Clicked" />
+        <ToolbarItem x:Name="Edit" 
+                     Text="Edit" 
+                     Clicked="BtnEditCourse_Clicked" />
+        <ToolbarItem x:Name="Delete" 
+                     Text="Delete" 
+                     Clicked="BtnDeleteCourse_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <HorizontalStackLayout Margin="0,0,0,20" 
+                                   BackgroundColor="SteelBlue">
+                <Button x:Name="Overview" 
+                        Text="Overview" 
+                        BackgroundColor="DarkGoldenrod"/>
+                <Button x:Name="Assessments" 
+                        Text="Assessments" 
+                        Clicked="BtnAssessments_Clicked" 
+                        BackgroundColor="SteelBlue"/>
+            </HorizontalStackLayout>
+
+            <StackLayout Margin="25,10,0,25">
+                <Label Text="{Binding Course.Title}"
+                       FontSize="22" 
+                       Margin="0,0,0,10"/>
+                <HorizontalStackLayout>
+                    <Label Text="{Binding Course.StartDate, StringFormat='{0:MM/dd/yyyy}'}"
+                           FontSize="14"/>
+                    <Label Text=" - " 
+                           HorizontalOptions="Center"/>
+                    <Label Text="{Binding Course.EndDate, StringFormat='{0:MM/dd/yyyy}'}"
+                           FontSize="14" />
+                </HorizontalStackLayout>
+                <Label Text="{Binding Course.Status}"
+                       FontSize="16"
+                       Margin="0,0,0,15"/>
+
+                <Label Text="Instructor"
+                       FontSize="22" 
+                       Margin="0,10"/>
+                <Label Text="{Binding Course.Instructor}"
+                       FontSize="16" />
+                <Label Text="{Binding Course.Phone}"
+                       FontSize="16" />
+                <Label Text="{Binding Course.Email}"
+                       FontSize="16" 
+                       Margin="0,0,0,15"/>
+
+                <HorizontalStackLayout>
+                    <Label Text="Notes" 
+                           FontSize="20"
+                           Margin="0,20,20,10"/>
+                    <Button Text="Share"
+                            FontSize="13"
+                            HeightRequest="27"
+                            Margin="0,4,0,0"
+                            Padding="10,0,10,0"
+                            BackgroundColor="DarkGoldenrod"
+                            Clicked="BtnShareNotes_Clicked"/>
+                </HorizontalStackLayout>
+                <Label Text="{Binding Course.Notes}"
+                           FontSize="16"/>
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

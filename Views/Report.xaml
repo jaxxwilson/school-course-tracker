@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SCT.Views.Report"
+             Title="Report">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Home" 
+                     Text="Home" 
+                     Clicked="BtnHome_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="Auto,*">
+        <SearchBar x:Name="searchBar"
+                   Placeholder="Search"
+                   TextChanged="OnSearchTextChanged"
+                   SearchButtonPressed="searchBar_SearchButtonPressed"
+                   Margin="10,5"
+                   Grid.Row="0">
+        </SearchBar>
+
+        <ScrollView Grid.Row="1"
+                    Scrolled="ScrollView_Scrolled"
+                    Padding="20,0,20,40">
+            <StackLayout x:Name="ReportData" />
+        </ScrollView>
+    </Grid>
+</ContentPage>
