@@ -162,7 +162,7 @@ public partial class Report : ContentPage
         ReportData.Children.Add(timeStampLbl);
     }
 
-    private async void OnSearchTextChanged(object sender, TextChangedEventArgs e)
+    private void OnSearchTextChanged(object sender, TextChangedEventArgs e)
     {
         string searchText = e.NewTextValue?.ToLower() ?? "";
 

@@ -37,14 +37,18 @@
                             </Border.StrokeShape>
                             <StackLayout>
                                 <Label Text="{Binding Title}"
-                                   FontSize="20"/>
+                                    FontSize="20"
+                                    TextColor="Black"/>
                                 <HorizontalStackLayout>
                                     <Label Text="{Binding StartDate, StringFormat='{0:MM/dd/yyyy}'}"
-                                       FontSize="14"/>
+                                        FontSize="14"
+                                        TextColor="Black"/>
                                     <Label Text=" - " 
-                                       HorizontalOptions="Center"/>
+                                        TextColor="Black"
+                                        HorizontalOptions="Center"/>
                                     <Label Text="{Binding EndDate, StringFormat='{0:MM/dd/yyyy}'}"
-                                       FontSize="14" />
+                                        FontSize="14" 
+                                        TextColor="Black"/>
                                 </HorizontalStackLayout>
                             </StackLayout>
                         </Border>
